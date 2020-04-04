@@ -7,6 +7,10 @@ body {
   // height: 1700px;
   margin: 0;
   padding-bottom: 100px;
+
+  font-family: 'Work Sans', sans-serif;
+  // font-family: 'Montserrat', sans-serif;
+  // font-family: 'Poppins', sans-serif;
 }
 
 .underline-wrap {
@@ -23,7 +27,7 @@ body {
 
 .underline {
   padding: 2px 0;
-  background: white;
+  background: black;
   display: block;
   position: absolute;
   top: 0;
@@ -31,7 +35,7 @@ body {
   width: 100%;
 
   &.underline-progress {
-    background: #05C4EB;
+    background: #4b4bff;
     z-index: 1;
     width: 0%;
   }
@@ -41,9 +45,11 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgb(36, 42, 47);
-  opacity: .8;
+  opacity: 1;
   padding: 20px;
+  background: white;
+  box-shadow: 1px -4px 5px 3px #00000073;
+  justify-content: flex-end;
 
   * {
     margin-right: 10px;
@@ -52,7 +58,7 @@ body {
 
 .menu-item {
   a {
-    color: white;
+    color: black;
     text-decoration: none;
   }
 }
@@ -70,11 +76,18 @@ body {
 
 section {
   height: 400px;
-  background: #5D6D7E;
+  background: white;
 
   &:nth-child(odd) {
     background: #2C3E50;
   }
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 62px 0 0 15%;
+  text-align: left;
 }
 
 .modal-container {
@@ -87,4 +100,44 @@ section {
   padding: 20px;
   min-width: 350px;
   box-shadow: 1px 1px 23px rgba(0, 0, 0, .5)
+}
+
+h2 {
+  font-family: Montserrat;
+  font-size: 45px;
+  letter-spacing: .5px;
+  margin: 0;
+  margin-bottom: 7px;
+}
+
+p {
+  max-width: 500px;
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 0px 0 20px;
+  letter-spacing: .6px;
+  font-weight: 300;
+  color: #656565;
+}
+
+a.primary-button {
+  text-decoration: none;
+  background: #4b4bff;
+  color: white;
+  border-radius: 6px;
+  padding: 12px 25px;
+  font-size: 14px;
+  box-shadow: 1px 1px 8px 2px #5252ff6e;
+  display: inline-block;
+  margin-right: 25px;
+  font-family: Montserrat;
+  letter-spacing: 1.25px;
+}
+
+a.secondary-button.transparent {
+  text-decoration: none;
+  color: black;
+  font-family: montserrat;
+  font-size: 14px;
+  letter-spacing: 1.25px;
 }

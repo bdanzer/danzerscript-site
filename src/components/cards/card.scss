@@ -1,0 +1,40 @@
+.card {
+  // width: 400px;
+  background: white;
+  box-shadow: 1px 1px 20px 0px #00000038;
+  border-radius: 13px;
+  margin: 0 15px 20px;
+  transition: .2s ease;
+  flex: 0 0 20%;
+  position: relative;
+
+  @media screen and (max-width: 1024px) {
+    flex: 0 0 50%;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+  p {
+    font-size: 16px;
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .content-wrap {
+    padding: 20px
+  }
+
+  .icon {
+    max-height: 40px;
+    width: auto;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+  }
+}

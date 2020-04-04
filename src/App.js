@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./styles.scss";
 
-import Slider from "./components/slider";
+import Slider from "./components/slider/slider";
+import Card from "./components/cards/card";
+import Button from "./components/button/button";
 
 function Modal({ children, isOpen }) {
   return isOpen && <div className="modal-container">{children}</div>;
@@ -165,11 +167,33 @@ export default function App() {
         <MenuItem sectionLink={section3} text="Section 3" />
       </div>
 
-      <section ref={section1} />
+      <section ref={section1}>
+        <h2>Hello There this is a title</h2>
+        <p>
+          This is a paragraph, and we are going to keep talking and talking
+          because we need some filling to check things out!
+        </p>
+        <p>
+          <Button text="Contact Me" />
+          <a class="secondary-button transparent" href="">
+            Learn More
+          </a>
+        </p>
+      </section>
       <section ref={section2} />
       <section ref={section3} />
       <Portfolio />
       <Slider />
+      <h2>Hello!</h2>
+      <div
+        style={{
+          display: "flex"
+        }}
+      >
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </>
   );
 }
