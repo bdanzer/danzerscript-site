@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./styles.scss";
 
+import Slider from "./components/slider";
+
 function Modal({ children, isOpen }) {
   return isOpen && <div className="modal-container">{children}</div>;
 }
@@ -167,6 +169,7 @@ export default function App() {
       <section ref={section2} />
       <section ref={section3} />
       <Portfolio />
+      <Slider />
     </>
   );
 }

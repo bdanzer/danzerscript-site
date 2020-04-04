@@ -1,0 +1,15 @@
+.item {
+  background: purple;
+  padding: 20px;
+  width: 100%;
+  position: absolute;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  height: 400px
+}
