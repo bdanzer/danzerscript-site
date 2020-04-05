@@ -50,6 +50,7 @@ body {
   background: white;
   box-shadow: 1px -4px 5px 3px #00000073;
   justify-content: flex-end;
+  z-index: 999999;
 
   * {
     margin-right: 10px;
@@ -75,18 +76,18 @@ body {
 }
 
 section {
-  height: 400px;
+  height: auto;
   background: white;
 
   &:nth-child(odd) {
-    background: #2C3E50;
+    background: #fbfbfb;
   }
 
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 62px 0 0 15%;
+  padding: 100px 15%;
   text-align: left;
 }
 
@@ -140,4 +141,14 @@ a.secondary-button.transparent {
   font-family: montserrat;
   font-size: 14px;
   letter-spacing: 1.25px;
+}
+
+:focus {
+    // outline: 2px solid black;
+    // box-shadow: 1px 1px 7px 4px #0000005c;
+}
+
+.align-items-center {
+  display: flex;
+  align-items: center;
 }

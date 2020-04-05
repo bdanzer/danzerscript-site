@@ -1,143 +1,22 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef, Children } from "react";
 import "./styles.scss";
 
 import Slider from "./components/slider/slider";
 import Card from "./components/cards/card";
 import Button from "./components/button/button";
+import Tabs from "./components/tabs/tabs";
+import Modal from "./components/modal/modal";
+import Portfolio from "./components/portfolio/portfolio";
+import MenuItem from "./components/menu-item/menu-item";
 
-function Modal({ children, isOpen }) {
-  return isOpen && <div className="modal-container">{children}</div>;
+function TestComponent({ children }) {
+  Children.map(children, child => console.log(child));
+  // console.log(children);
+  return null;
 }
 
-function ProgressLine({ progress, classes }) {
-  return (
-    <div className={`underline-wrap ${classes ? classes : ""}`}>
-      <span className="underline" />
-      <span
-        style={{
-          width: `${100 - progress}%`,
-          transition: ".15s ease",
-          WebkitTransform: "scaleX(-1)",
-          transform: "scaleX(-1)"
-        }}
-        className="underline underline-progress"
-      />
-    </div>
-  );
-}
-
-function MenuItem({ sectionLink, text }) {
-  const [progress, setProgress] = useState();
-  const [hide, setHide] = useState(true);
-
-  useEffect(() => {
-    if (sectionLink) {
-      window.addEventListener("scroll", onScroll);
-
-      return () => {
-        window.removeEventListener("scroll", onScroll);
-      };
-    }
-  }, []);
-
-  const onScroll = () => {
-    let scroll = false;
-    let lastScrollY = window.scrollY;
-    if (!scroll) {
-      requestAnimiation(lastScrollY);
-      scroll = true;
-    }
-  };
-
-  const requestAnimiation = lastScrollY => {
-    window.requestAnimationFrame(() => {
-      let elOffsetTop =
-        sectionLink.current.offsetTop -
-        (sectionLink.current.offsetTop === 0 ? 0 : 62);
-      // console.log(elOffsetTop);
-      let elOffsetHeight =
-        sectionLink.current.offsetHeight - (elOffsetTop !== 0 ? 0 : 62);
-      let totalElOffsetHeight = elOffsetTop + elOffsetHeight;
-      let elOffsetLessThanWindowY = elOffsetTop < window.pageYOffset;
-      let totalElOffsetHeightGreaterThanWindowY =
-        totalElOffsetHeight > window.pageYOffset;
-
-      let inRange =
-        elOffsetLessThanWindowY && totalElOffsetHeightGreaterThanWindowY;
-
-      // if (elOffsetLessThanWindowY && totalElOffsetHeightGreaterThanWindowY) {
-
-      if (elOffsetTop && window.pageYOffset < 62) {
-        return;
-      }
-
-      let progressTotal = (window.pageYOffset - elOffsetTop) / elOffsetHeight;
-      let percentage = Math.floor(progressTotal * 100);
-
-      if (percentage >= 100) {
-        percentage = 100;
-      }
-
-      if (percentage <= 0) {
-        percentage = 0;
-      }
-
-      if (inRange) {
-        setHide(false);
-      } else {
-        setHide(true);
-      }
-
-      setProgress(percentage);
-      // }
-    });
-  };
-
-  const handleMenuClick = e => {
-    let elOffsetTop = sectionLink.current.offsetTop - 62;
-
-    window.scrollTo({
-      top: elOffsetTop + 1,
-      behavior: "smooth"
-    });
-
-    e.preventDefault();
-  };
-
-  return (
-    <div className="menu-item">
-      <div className="menu-item-wrap">
-        <div className="column">
-          <a href="/" onClick={handleMenuClick}>
-            {text}
-            <ProgressLine
-              classes={`${hide ? "hidden" : "visibile"}`}
-              progress={progress}
-            />
-          </a>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Portfolio() {
-  const [isOpen, setModalState] = useState(false);
-
-  const toggleModal = ID => {
-    setModalState(!isOpen);
-    console.log(ID);
-  };
-
-  return (
-    <div className="row">
-      <div onClick={() => toggleModal("ID")}>Hello</div>
-      <div>Hello</div>
-      <div>Hello</div>
-
-      <Modal isOpen={isOpen}>This is a modal</Modal>
-    </div>
-  );
+function PlaceHolder({ customProp }) {
+  return <div>{customProp}</div>;
 }
 
 export default function App() {
@@ -168,10 +47,12 @@ export default function App() {
       </div>
 
       <section ref={section1}>
-        <h2>Hello There this is a title</h2>
+        <h2>About dScript</h2>
         <p>
-          This is a paragraph, and we are going to keep talking and talking
-          because we need some filling to check things out!
+          I am a Full-Stack JavaScript Engineer, with emphasis on Front-End. I
+          am constantly learning and continously taking on new challenges to
+          better myself. If you would like to work with me then contact me!
+          Otherwise, please take a look around the site.
         </p>
         <p>
           <Button text="Contact Me" />
@@ -180,20 +61,40 @@ export default function App() {
           </a>
         </p>
       </section>
-      <section ref={section2} />
-      <section ref={section3} />
+      <section ref={section2}>
+        <h2
+          style={{
+            textAlign: "center",
+            marginBottom: "20px"
+          }}
+        >
+          Hello!
+        </h2>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap"
+          }}
+        >
+          <Card />
+          <Card />
+          <Card />
+        </div>
+      </section>
+      <section ref={section3}>
+        <Tabs />
+      </section>
+      <TestComponent>
+        <div>
+          Child 1 <div>SubChild</div>
+        </div>
+        <div>
+          Child 2 <div>SubChild</div>
+        </div>
+        <PlaceHolder customProp="yay customs" />
+      </TestComponent>
       <Portfolio />
       <Slider />
-      <h2>Hello!</h2>
-      <div
-        style={{
-          display: "flex"
-        }}
-      >
-        <Card />
-        <Card />
-        <Card />
-      </div>
     </>
   );
 }

@@ -1,0 +1,128 @@
+.tabs-wrap {
+  h2 {
+    margin-top: 0;
+  }
+  .content-area-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .content-area {
+      // padding: 0 20px 20px;
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  svg {
+    max-height: 80px;
+    width: auto;
+    // box-shadow: 1px 1px 20px 0px #0000001a;
+    padding: 10px;
+    flex: 1 0 auto;
+    border-radius: 8px;
+  }
+}
+
+.col-2 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  width: 100%;
+}
+
+.col-one-fourth {
+  flex: 0 0 25%;
+  max-width: 25%;
+  width: 25%;
+}
+
+.col-three-fourths {
+  flex: 0 0 75%;
+  max-width: 75%;
+  width: 75%;
+}
+
+.tab-button {
+  background: white;
+  padding: 10px;
+  box-shadow: 1px 1px 20px 0px #00000038;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  color: black;
+  transition: .15s ease-in;
+  position: relative;
+
+  &:before {
+    content: "";
+    height: 10px;
+    width: 10px;
+    display: block;
+    border-radius: 100%;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #bf0808;
+    box-shadow: 0px 0px 4px 1px #ea202096;
+    background: #505050;
+    box-shadow: 0px 0px 4px 1px #00000096;
+  }
+  
+  &.active {
+    color: white;
+    background: #4b4bff;
+    box-shadow: 1px 1px 8px 2px #5252ff6e;
+    box-shadow: 0px 0px 6px 3px #4b4bff6e;
+    
+    &:before {
+      background: #08bf08;
+      box-shadow: 0px 0px 6px 1px #20ea20e6;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.icon-wrap {
+  flex: 0 0 33%;
+  max-width: 33%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+.tab-right-wrap {
+  box-shadow: 1px 1px 20px 0px #0000001a;
+  padding: 20px;
+  border-radius: 13px;
+  margin-left: 40px;
+}
+
+.tab-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: opacity 400ms ease, transform .5s ease-out;
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: opacity 400ms ease, transform .5s ease-in;
+    z-index: 1;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
