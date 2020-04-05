@@ -46,14 +46,19 @@ body {
   top: 0;
   width: 100%;
   opacity: 1;
-  padding: 20px;
+  padding: 16.5px 60px;
   background: white;
   box-shadow: 1px -4px 5px 3px #00000073;
   justify-content: flex-end;
   z-index: 999999;
+  transition: .5s ease;
 
-  .menu-wrap .menu-item {
-    margin-right: 26px;
+  .menu-wrap { 
+    margin-top: 4px;
+
+    .menu-item {
+      margin-right: 26px;
+    }
   }
 }
 
@@ -121,26 +126,32 @@ p {
   color: #656565;
 }
 
-a.primary-button {
-  text-decoration: none;
-  background: #4b4bff;
-  color: white;
-  border-radius: 6px;
-  padding: 12px 25px;
-  font-size: 14px;
-  box-shadow: 1px 1px 8px 2px #5252ff6e;
-  display: inline-block;
-  margin-right: 25px;
-  font-family: Montserrat;
-  letter-spacing: 1.25px;
-}
+a {
+  &.primary-button {
+    text-decoration: none;
+    background: #4b4bff;
+    color: white;
+    border-radius: 6px;
+    padding: 12px 25px;
+    font-size: 14px;
+    box-shadow: 1px 1px 8px 2px #5252ff6e;
+    display: inline-block;
+    margin-right: 25px;
+    font-family: Montserrat;
+    letter-spacing: 1.25px;
+  }
+  
+  &.secondary-button.transparent {
+    text-decoration: none;
+    color: black;
+    font-family: montserrat;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+  }
 
-a.secondary-button.transparent {
-  text-decoration: none;
-  color: black;
-  font-family: montserrat;
-  font-size: 14px;
-  letter-spacing: 1.25px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 :focus {

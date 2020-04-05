@@ -5,8 +5,8 @@
   border-radius: 13px;
   margin: 0 15px 20px;
   transition: .2s ease;
-  flex: 0 0 20%;
-  max-width: 20%;
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
   width: 100%;
   position: relative;
 
@@ -32,6 +32,8 @@
 
   img {
     width: 100%;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
   }
 
   .content-wrap {

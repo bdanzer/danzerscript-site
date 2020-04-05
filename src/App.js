@@ -59,7 +59,7 @@ export default function App() {
 
       <section ref={section1}>
         <h2>About dScript</h2>
-        <p>
+        <p style={{ maxWidth: 550 }}>
           I am a Full-Stack JavaScript Engineer, with emphasis on Front-End. I
           am constantly learning and continously taking on new challenges to
           better myself. If you would like to work with me then contact me!
@@ -73,13 +73,16 @@ export default function App() {
         </p>
       </section>
       <section ref={section2}>
+        <Tabs />
+      </section>
+      <section ref={section3}>
         <h2
           style={{
             textAlign: "center",
             marginBottom: "20px"
           }}
         >
-          Hello!
+          Portfolio
         </h2>
         <div
           style={{
@@ -92,9 +95,6 @@ export default function App() {
           <Card />
         </div>
       </section>
-      <section ref={section3}>
-        <Tabs />
-      </section>
       <TestComponent>
         <div>
           Child 1 <div>SubChild</div>
@@ -104,8 +104,8 @@ export default function App() {
         </div>
         <PlaceHolder customProp="yay customs" />
       </TestComponent>
-      <Portfolio />
-      <Slider />
+      {/* <Portfolio />
+      <Slider /> */}
     </>
   );
 }
