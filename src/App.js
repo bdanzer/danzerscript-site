@@ -8,6 +8,7 @@ import Tabs from "./components/tabs/tabs";
 import Modal from "./components/modal/modal";
 import Portfolio from "./components/portfolio/portfolio";
 import MenuItem from "./components/menu-item/menu-item";
+import DScriptLogo from "./components/d-script-logo/d-script-logo";
 
 function TestComponent({ children }) {
   Children.map(children, child => console.log(child));
@@ -40,10 +41,20 @@ export default function App() {
       /> */}
       <Modal isOpen={isOpen}>This is the content in the modal</Modal>
 
-      <div className="menu-parent row">
-        <MenuItem sectionLink={section1} text="Section 1" />
-        <MenuItem sectionLink={section2} text="Section 2" />
-        <MenuItem sectionLink={section3} text="Section 3" />
+      <div
+        className="menu-parent row"
+        style={{
+          justifyContent: "space-between"
+        }}
+      >
+        <div>
+          <DScriptLogo />
+        </div>
+        <div className="menu-wrap row">
+          <MenuItem sectionLink={section1} text="Section 1" />
+          <MenuItem sectionLink={section2} text="Section 2" />
+          <MenuItem sectionLink={section3} text="Section 3" />
+        </div>
       </div>
 
       <section ref={section1}>
