@@ -1,14 +1,37 @@
 .card {
   // width: 400px;
-  background: white;
-  box-shadow: 1px 1px 20px 0px #00000038;
-  border-radius: 13px;
-  margin: 0 15px 20px;
+  margin: 0 0 20px;
   transition: .2s ease;
   flex: 0 0 33.3333%;
   max-width: 33.3333%;
   width: 100%;
   position: relative;
+  padding: 0 15px;
+  
+  .card-wrap {
+    box-shadow: 1px 1px 20px 0px #00000038;
+    border-radius: 13px;
+    background: white;
+
+    .content-wrap {
+      padding: 20px;
+      position: relative;
+  
+      h2 {
+        font-size: 30px;
+      }
+  
+      p {
+        font-size: 16px;
+      }
+
+      .card-footer {
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
 
   @media screen and (max-width: 1024px) {
     flex: 0 0 50%;
@@ -19,25 +42,11 @@
     flex: 0 0 100%;
     max-width: 100%;
   }
-
-  h2 {
-    font-size: 30px;
-  }
-  p {
-    font-size: 16px;
-    &:last-child {
-      margin: 0;
-    }
-  }
-
+  
   img {
     width: 100%;
     border-top-left-radius: 13px;
     border-top-right-radius: 13px;
-  }
-
-  .content-wrap {
-    padding: 20px
   }
 
   .icon {

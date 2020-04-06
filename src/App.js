@@ -26,6 +26,7 @@ export default function App() {
   const section1 = useRef(null);
   const section2 = useRef(null);
   const section3 = useRef(null);
+  const section4 = useRef(null);
 
   return (
     <>
@@ -54,6 +55,7 @@ export default function App() {
           <MenuItem sectionLink={section1} text="Section 1" />
           <MenuItem sectionLink={section2} text="Section 2" />
           <MenuItem sectionLink={section3} text="Section 3" />
+          <MenuItem sectionLink={section4} text="Section 4" />
         </div>
       </div>
 
@@ -61,9 +63,9 @@ export default function App() {
         <h2>About dScript</h2>
         <p style={{ maxWidth: 550 }}>
           I am a Full-Stack JavaScript Engineer, with emphasis on Front-End. I
-          am constantly learning and continously taking on new challenges to
-          better myself. If you would like to work with me then contact me!
-          Otherwise, please take a look around the site.
+          am constantly learning and continously taking on new challenges. If
+          you would like to work with me then contact me! Otherwise, please take
+          a look around the site.
         </p>
         <p>
           <Button text="Contact Me" />
@@ -75,21 +77,34 @@ export default function App() {
       <section ref={section2}>
         <Tabs />
       </section>
-      <section ref={section3}>
+      <section
+        ref={section3}
+        style={{
+          padding: "60px 0"
+        }}
+      >
+        <h2 style={{ textAlign: "center", marginBottom: 20 }}>
+          Portfolio Section
+        </h2>
+        <Slider>
+          <Card imgSrc="https://source.unsplash.com/800x601" />
+          <Card imgSrc="https://source.unsplash.com/800x602" />
+          <Card imgSrc="https://source.unsplash.com/800x603" />
+          <Card imgSrc="https://source.unsplash.com/800x604" />
+          <Card imgSrc="https://source.unsplash.com/800x605" />
+          <Card imgSrc="https://source.unsplash.com/800x606" />
+        </Slider>
+      </section>
+      <section ref={section4}>
         <h2
           style={{
             textAlign: "center",
             marginBottom: "20px"
           }}
         >
-          Portfolio
+          Testimonial
         </h2>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap"
-          }}
-        >
+        <div className="row">
           <Card />
           <Card />
           <Card />
@@ -104,8 +119,7 @@ export default function App() {
         </div>
         <PlaceHolder customProp="yay customs" />
       </TestComponent>
-      {/* <Portfolio />
-      <Slider /> */}
+      {/* <Portfolio /> */}
     </>
   );
 }

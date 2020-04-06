@@ -89,11 +89,12 @@ section {
   }
 
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
   padding: 100px 15%;
   text-align: left;
+  overflow-x: hidden;
 }
 
 .modal-container {
