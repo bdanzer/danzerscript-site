@@ -1,20 +1,33 @@
-.item {
-  background: purple;
-  padding: 20px;
-  width: 100%;
-  position: absolute;
-}
-
-.slider-container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+.slider {
   position: relative;
-  transition: .5s ease;
-  // max-width: 1200px;
-  // margin: auto;
-}
 
-#slider-controller {
-  flex-wrap: nowrap
+  .slider-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    position: relative;
+    transition: .5s ease;
+    // max-width: 1200px;
+    // margin: auto;
+  }
+
+  .arrow {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+    &.left {
+      left: 0;
+      background: linear-gradient(to left, transparent, #ffffff);
+    }
+    
+    &.right {
+      right: 0;
+      background: linear-gradient(to right, transparent, #ffffff);
+    }
+  }
 }

@@ -1,0 +1,9 @@
+.logo {
+  transition: .2s;
+  opacity: 1;
+  &.small {
+    .second-part {
+      opacity: 0;
+    }
+  }
+}

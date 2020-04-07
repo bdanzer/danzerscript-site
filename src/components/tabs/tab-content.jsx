@@ -21,7 +21,7 @@ export default function TabContent(props) {
           <ContentArea {...props} />
         </div>
         <div className="col-2 align-items-center">
-          <div class="icons-list row">
+          <div className="icons-list row">
             <div className="icon-wrap">
               <JavaScriptIcon />
             </div>

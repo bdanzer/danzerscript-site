@@ -1,0 +1,16 @@
+section {
+  height: auto;
+  background: white;
+
+  &:nth-child(odd) {
+    background: #fbfbfb;
+  }
+
+
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  padding: 100px 15%;
+  text-align: left;
+  // overflow-x: hidden;
+}

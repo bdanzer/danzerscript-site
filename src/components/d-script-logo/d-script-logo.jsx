@@ -1,9 +1,11 @@
 import React from "react";
 
-export default function DScriptLogo() {
+import "./d-script-logo.scss";
+
+export default function DScriptLogo({ isLarge }) {
   return (
     <div
-      className="logo"
+      className={`logo ${!isLarge ? "large" : "small"}`}
       style={{
         fontSize: 20
       }}
@@ -17,7 +19,9 @@ export default function DScriptLogo() {
         d
       </span>
       <span>(</span>
-      <span>scripts</span>
+      <span>
+        s<span className="second-part">cripts</span>
+      </span>
       <span>)</span>
     </div>
   );

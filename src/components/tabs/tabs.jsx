@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import TabContent from "./tab-content";
 
@@ -46,14 +46,32 @@ let json = {
 
 export default function Tabs() {
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
+  const tabContainerRef = useRef();
+
+  useEffect(() => {
+    fixTabContainerHeight();
+  }, []);
+
+  const fixTabContainerHeight = () => {
+    let tabContainer = tabContainerRef.current;
+    let tabChildren = tabContainer.children;
+    let height = 0;
+
+    for (let i = 0; i < tabChildren.length; i++) {
+      let child = tabChildren[i];
+      height = height < child.offsetHeight ? child.offsetHeight : height;
+    }
+
+    tabContainer.style.height = `${height}px`;
+  };
 
   return (
     <div className="tabs-wrap">
-      <h2 style={{ textAlign: "center", marginBottom: "20px" }}>Code Stack</h2>
       <div className="row">
         <div className="col-one-fourth">
           {json.tabButtons.map((tabButton, i) => (
             <div
+              key={i}
               tabIndex="0"
               onClick={() => setCurrentTabIndex(i)}
               className={`tab-button ${currentTabIndex === i ? "active" : ""}`}
@@ -78,6 +96,7 @@ export default function Tabs() {
           ))}
         </div>
         <div
+          ref={tabContainerRef}
           className="col-three-fourths"
           style={{
             position: "relative"

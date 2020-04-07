@@ -1,7 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
 
-import Card from "../cards/card";
-
 import "./slider.scss";
 
 export default function Slider({ children }) {
@@ -24,6 +22,10 @@ export default function Slider({ children }) {
     setCurrentWidthPer(widthPer);
     setTotalTranslated(-widthPer / 2);
 
+    // React.Children.map(child => React.cloneElement(child, {
+
+    // }));
+
     for (let i = 0; i < sliderChildren.length; i++) {
       let child = sliderChildren[i];
 
@@ -43,7 +45,7 @@ export default function Slider({ children }) {
 
   const movePrev = direction => {
     let total = totalTranlated + currentWidthPer;
-    console.log("prev", total, total < 0);
+    // console.log("prev", total, total < 0);
     if (total <= currentWidthPer) {
       setTotalTranslated(total);
     }
@@ -55,7 +57,7 @@ export default function Slider({ children }) {
     let maxWidth = count * currentWidthPer;
     let total = totalTranlated - currentWidthPer;
 
-    console.log("next", total, maxWidth, total < maxWidth);
+    // console.log("next", total, maxWidth, total < maxWidth);
 
     if (Math.abs(total) < maxWidth) {
       setTotalTranslated(total);
@@ -64,7 +66,12 @@ export default function Slider({ children }) {
 
   return (
     <>
-      <div>
+      <div
+        className="slider"
+        onDrag={e => console.log("drag", e)}
+        onDragEnter={e => console.log("drag", e)}
+        onMouseDown={e => console.log("drag")}
+      >
         <div
           ref={sliderRef}
           className="slider-container"
@@ -74,8 +81,20 @@ export default function Slider({ children }) {
         >
           {children}
         </div>
-        <div onClick={movePrev}>Arrow Left</div>
-        <div onClick={moveNext}>Arrow Right</div>
+        <div
+          style={{ width: `${currentWidthPer / 2}px` }}
+          className="arrow left"
+          onClick={movePrev}
+        >
+          Arrow Left
+        </div>
+        <div
+          style={{ width: `${currentWidthPer / 2}px` }}
+          className="arrow right"
+          onClick={moveNext}
+        >
+          Arrow Right
+        </div>
       </div>
     </>
   );

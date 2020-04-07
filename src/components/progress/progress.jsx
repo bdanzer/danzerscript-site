@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./progress.scss";
+
 export default function ProgressLine({ progress, classes }) {
   return (
     <div className={`underline-wrap ${classes ? classes : ""}`}>

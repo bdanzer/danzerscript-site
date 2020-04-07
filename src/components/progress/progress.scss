@@ -1,0 +1,27 @@
+.underline-wrap {
+  position: relative;
+  height: 4px;
+  width: 100%;
+  opacity: 1;
+  transition: .5s;
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+.underline {
+  padding: 2px 0;
+  background: black;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  &.underline-progress {
+    background: #4b4bff;
+    z-index: 1;
+    width: 0%;
+  }
+}

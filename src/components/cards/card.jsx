@@ -5,9 +5,11 @@ import Button from "../button/button";
 import "./card.scss";
 import { ReactComponent as GitHub } from "./github-icon.svg";
 
-export default function Card({ imgSrc }) {
+export default function Card(props) {
+  const { imgSrc, onClick } = props;
+
   return (
-    <div class="card">
+    <div className="card">
       <div className="card-wrap">
         {imgSrc && <img alt="hello" src={imgSrc} />}
         <div className="content-wrap">
@@ -20,7 +22,7 @@ export default function Card({ imgSrc }) {
           </div>
           <div className="card-footer">
             <p>
-              <Button text="View" />
+              <Button text="View" onClick={onClick} />
             </p>
             <GitHub className="icon" />
           </div>
