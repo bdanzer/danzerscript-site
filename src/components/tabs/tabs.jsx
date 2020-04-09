@@ -1,5 +1,29 @@
 import React, { useState, useRef, useEffect } from "react";
 
+import { ReactComponent as JavaScriptIcon } from "../../../public/svgs/javascript.svg";
+import { ReactComponent as ReduxIcon } from "../../../public/svgs/redux.svg";
+import { ReactComponent as ReactIcon } from "../../../public/svgs/react.svg";
+import { ReactComponent as VueIcon } from "../../../public/svgs/vue.svg";
+import { ReactComponent as StencilIcon } from "../../../public/svgs/stencil.svg";
+import { ReactComponent as TypeScriptIcon } from "../../../public/svgs/typescript.svg";
+
+import { ReactComponent as NextJSIcon } from "../../../public/svgs/nextjs.svg";
+import { ReactComponent as ExpressIcon } from "../../../public/svgs/express.svg";
+import { ReactComponent as MongoDB } from "../../../public/svgs/mongodb.svg";
+import { ReactComponent as NodeJS } from "../../../public/svgs/nodejs.svg";
+import { ReactComponent as WordPress } from "../../../public/svgs/wordpress.svg";
+import { ReactComponent as FireBase } from "../../../public/svgs/firebase.svg";
+
+import { ReactComponent as Puppeteer } from "../../../public/svgs/puppeteer.svg";
+import { ReactComponent as Jest } from "../../../public/svgs/jest.svg";
+
+import { ReactComponent as Docker } from "../../../public/svgs/docker.svg";
+import { ReactComponent as Jenkins } from "../../../public/svgs/jenkins.svg";
+import { ReactComponent as Aws } from "../../../public/svgs/aws.svg";
+import { ReactComponent as CloudFlare } from "../../../public/svgs/cloudflare.svg";
+import { ReactComponent as DigitalOcean } from "../../../public/svgs/digital-ocean.svg";
+import { ReactComponent as Zeit } from "../../../public/svgs/zeit.svg";
+
 import TabContent from "./tab-content";
 
 import "./tabs.scss";
@@ -24,22 +48,36 @@ let json = {
       title: "Front-End Tools",
       content:
         "I have a solid foundation and understanding of JavaScript. My Framework of choice is React with Redux for complex state management but I have worked with Vue and VueX. I have also built web components with Stencil and Typescript.",
-      buttonText: "Contact Me"
+      buttonText: "Contact Me",
+      icons: [
+        JavaScriptIcon,
+        ReactIcon,
+        ReduxIcon,
+        StencilIcon,
+        TypeScriptIcon,
+        VueIcon
+      ]
     },
     {
       title: "Back-End Tools",
-      content: "These are the back-end tools I have most frequently used",
-      buttonText: "Contact Me"
+      content:
+        "NodeJS and Express are the bread and butter of what I use. I  use NextJS for SSR Javascript, and have been learning isomorphic design. I also use Firebase or Mongo for NoSQL. WordPress as a headless CMS",
+      buttonText: "Contact Me",
+      icons: [NodeJS, ExpressIcon, NextJSIcon, MongoDB, FireBase, WordPress]
     },
     {
       title: "Testing",
-      content: "These are the back-end tools I have most frequently used",
-      buttonText: "Contact Me"
+      content:
+        "I have used Puppeteer to leverage headless chrome to take screenshots of interactions to help automate testing. I have used Jest before React and use it with React.",
+      buttonText: "Contact Me",
+      icons: [Jest, Puppeteer]
     },
     {
       title: "Server Tools",
-      content: "These are the server tools I have most frequently used",
-      buttonText: "Contact Me"
+      content:
+        "I use Docker for local environments and for deploying to cloud services like AWS or Digital Ocean. From time to time I do use Zeit if I wan't to deploy something really quick",
+      buttonText: "Contact Me",
+      icons: [Docker, DigitalOcean, Zeit, Aws, Jenkins, CloudFlare]
     }
   ]
 };
@@ -51,6 +89,13 @@ export default function Tabs() {
   useEffect(() => {
     fixTabContainerHeight();
   }, []);
+
+  const getIcons = ({ icons }) =>
+    icons.map((Icon, i) => (
+      <div className="icon-wrap">
+        <Icon key={i} />
+      </div>
+    ));
 
   const fixTabContainerHeight = () => {
     let tabContainer = tabContainerRef.current;
@@ -103,11 +148,13 @@ export default function Tabs() {
           }}
         >
           {json.tabContent.map((tabContent, i) => (
-            <TabContent
-              key={i}
-              active={currentTabIndex === i}
-              {...tabContent}
-            />
+            <TabContent key={i} active={currentTabIndex === i} {...tabContent}>
+              {active => (
+                <div className={`icons-list row ${active}`}>
+                  {getIcons(tabContent)}
+                </div>
+              )}
+            </TabContent>
           ))}
         </div>
       </div>

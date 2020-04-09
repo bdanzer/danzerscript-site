@@ -1,5 +1,6 @@
 .slider {
   position: relative;
+  overflow-x: hidden;
 
   .slider-container {
     display: flex;
@@ -22,12 +23,12 @@
     
     &.left {
       left: 0;
-      background: linear-gradient(to left, transparent, #ffffff);
+      // background: linear-gradient(to left, transparent, #ffffff);
     }
     
     &.right {
       right: 0;
-      background: linear-gradient(to right, transparent, #ffffff);
+      // background: linear-gradient(to right, transparent, #ffffff);
     }
   }
 }

@@ -2,6 +2,7 @@
   h2 {
     margin-top: 0;
   }
+
   .content-area-container {
     display: flex;
     flex-direction: column;
@@ -9,6 +10,12 @@
 
     .content-area {
       // padding: 0 20px 20px;
+      h2 {
+        @media screen and (max-width: 1000px) {
+          font-size: 20px;
+        }
+      }
+
       p:last-child {
         margin-bottom: 0;
       }
@@ -17,11 +24,25 @@
 
   svg {
     max-height: 80px;
-    width: auto;
-    // box-shadow: 1px 1px 20px 0px #0000001a;
     padding: 10px;
     flex: 1 0 auto;
     border-radius: 8px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 1000px) {
+    .row {
+      .tab-right-wrap div:last-child {
+        order: -1;
+        margin-bottom: 15px;
+
+        .icon-wrap {
+          flex: 0 0 50%;
+          max-width: 50%;
+          margin: 0;
+        }
+      }
+    }
   }
 }
 
@@ -29,18 +50,37 @@
   flex: 0 0 50%;
   max-width: 50%;
   width: 100%;
+
+  @media screen and (max-width: 1000px) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .col-one-fourth {
   flex: 0 0 25%;
   max-width: 25%;
   width: 25%;
+
+  @media screen and (max-width: 1000px) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
 
 .col-three-fourths {
   flex: 0 0 75%;
   max-width: 75%;
   width: 75%;
+
+  @media screen and (max-width: 1000px) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .tab-button {
@@ -125,5 +165,9 @@
 
   p {
     font-size: 16px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    margin: 0;
   }
 }

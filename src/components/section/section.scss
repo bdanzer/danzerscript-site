@@ -13,4 +13,10 @@ section {
   padding: 100px 15%;
   text-align: left;
   // overflow-x: hidden;
+
+  @media screen and (max-width: 1000px) {
+    padding: 80px 24px;
+  }
+
+  transition: .5s ease;
 }

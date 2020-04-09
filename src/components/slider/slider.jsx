@@ -1,30 +1,39 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState, useLayoutEffect, useEffect } from "react";
 
 import "./slider.scss";
 
 export default function Slider({ children }) {
   let sliderRef = useRef();
-  const [sliderChildenState, setSliderChildren] = useState([]);
   const [currentWidthPer, setCurrentWidthPer] = useState(0);
   const [totalTranlated, setTotalTranslated] = useState(0);
 
   useEffect(() => {
+    window.addEventListener("resize", () => {
+      setCalculations();
+    });
+  }, []);
+
+  useLayoutEffect(() => {
+    setCalculations();
+  }, []);
+
+  const setCalculations = () => {
+    if (window.innerWidth < 1000) {
+      calculate(0, 1);
+    } else {
+      calculate(3, 2);
+    }
+  };
+
+  const calculate = (totalCards, slice) => {
+    totalCards = totalCards + 1;
+
     let sliderChildren = sliderRef.current.children;
     let refWidth = sliderRef.current.clientWidth;
-    // console.log(sliderChildren);
+    let widthPer = refWidth / totalCards;
 
-    console.log("width: ", refWidth, refWidth / 4);
-
-    let widthPer = refWidth / 4;
-    console.log("widthPer", widthPer, refWidth);
-
-    // setTotalTranslated(widthPer);
     setCurrentWidthPer(widthPer);
-    setTotalTranslated(-widthPer / 2);
-
-    // React.Children.map(child => React.cloneElement(child, {
-
-    // }));
+    setTotalTranslated(-widthPer / slice);
 
     for (let i = 0; i < sliderChildren.length; i++) {
       let child = sliderChildren[i];
@@ -32,32 +41,21 @@ export default function Slider({ children }) {
       child.style.width = widthPer + "px";
       child.style.flex = `0 0 ${widthPer}px`;
       child.style.maxWidth = `${widthPer}px`;
-      // child.style.transform = `translateX(${widthPer * i}px)`;
-      // console.log();
     }
+  };
 
-    // React.Children.map(children, child => {
-    //   console.log(child);
-    // });
-
-    // setSliderChildren(sliderChildren);
-  }, []);
-
-  const movePrev = direction => {
+  const movePrev = () => {
     let total = totalTranlated + currentWidthPer;
-    // console.log("prev", total, total < 0);
+
     if (total <= currentWidthPer) {
       setTotalTranslated(total);
     }
   };
 
   const moveNext = () => {
-    // console.log(sliderChildenState);
     let count = React.Children.count(children);
     let maxWidth = count * currentWidthPer;
     let total = totalTranlated - currentWidthPer;
-
-    // console.log("next", total, maxWidth, total < maxWidth);
 
     if (Math.abs(total) < maxWidth) {
       setTotalTranslated(total);
@@ -66,12 +64,7 @@ export default function Slider({ children }) {
 
   return (
     <>
-      <div
-        className="slider"
-        onDrag={e => console.log("drag", e)}
-        onDragEnter={e => console.log("drag", e)}
-        onMouseDown={e => console.log("drag")}
-      >
+      <div className="slider">
         <div
           ref={sliderRef}
           className="slider-container"

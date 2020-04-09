@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, createRef } from "react";
 import "./styles.scss";
 
 import Slider from "./components/slider/slider";
@@ -6,11 +6,12 @@ import Card from "./components/cards/card";
 import Button from "./components/button/button";
 import Tabs from "./components/tabs/tabs";
 import Modal from "./components/modal/modal";
-import Portfolio from "./components/portfolio/portfolio";
 import MenuParent from "./components/menu-parent/menu-parent";
 import MenuItem from "./components/menu-item/menu-item";
 import DScriptLogo from "./components/d-script-logo/d-script-logo";
 import Section from "./components/section/section";
+
+import Form from "./components/form/form";
 
 import Title from "./components/title/title";
 
@@ -23,67 +24,51 @@ const cardData = [
   { imgSrc: "https://source.unsplash.com/800x606" }
 ];
 
-function TestComponent({ children }) {
-  // console.log(children);
-  let childrenArr = React.Children.toArray(children);
-  // console.log("test", childrenArr, [...childrenArr, ...childrenArr]);
-  // return React.Children.map(children, child =>
-  //   React.cloneElement(child, {
-  //     customProp: "changed",
-  //     style: {
-  //       background: "red"
-  //     }
-  //   })
-  // );
-  return null;
-}
-
-const PlaceHolder = React.forwardRef(function PlaceHolder(props, ref) {
-  return (
-    <div style={props.style} ref={ref}>
-      {props.customProp}
-    </div>
-  );
-});
+const menuData = [
+  { text: "About" },
+  { text: "Tech Stack" },
+  { text: "Projects" },
+  { text: "Recommendations" },
+  { text: "Contact" }
+];
 
 export default function App() {
   const [isOpen, setModalState] = useState(false);
-
-  const section1 = useRef(null);
-  const section2 = useRef(null);
-  const section3 = useRef(null);
-  const section4 = useRef(null);
-  const section5 = useRef(null);
+  const elementsRef = useRef([1, 2, 3, 4, 5].map(() => createRef()));
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
-      {/* <div
-        style={{
-          padding: "20px",
-          background: "lightblue",
-          width: 250,
-          height: 250
-        }}
-        className="box"
-        onMouseEnter={() => setModalState(true)}
-      /> */}
-      {/* <Modal isOpen={isOpen}>This is the content in the modal</Modal> */}
-
       <MenuParent>
         <div>
           <DScriptLogo />
         </div>
-        <div className="menu-wrap row">
-          <MenuItem sectionLink={section1} text="About" />
-          <MenuItem sectionLink={section2} text="Tech Stack" />
-          <MenuItem sectionLink={section3} text="Projects" />
-          <MenuItem sectionLink={section4} text="Recommendations" />
-          <MenuItem sectionLink={section5} text="Contact" />
+        {console.log(window.outerWidth, 767, window.outerWidth < 767)}
+        {window.outerWidth < 767 && (
+          <button
+            className="menu-button-mobile"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            Menu
+          </button>
+        )}
+        <div
+          className={`menu-wrap row ${
+            window.outerWidth < 767 ? "mobile" : "desktop"
+          } ${menuOpen ? "open" : "closed"}`}
+        >
+          {menuData.map((menu, i) => (
+            <MenuItem
+              key={i}
+              sectionLink={elementsRef.current[i]}
+              text={menu.text}
+            />
+          ))}
         </div>
       </MenuParent>
 
       <Section
-        ref={section1}
+        ref={elementsRef.current[0]}
         style={{
           background: "#4b4bff14"
         }}
@@ -99,24 +84,34 @@ export default function App() {
         </p>
         <p>
           <Button text="Contact Me" />
-          <a className="secondary-button transparent" href="">
+          <a className="secondary-button transparent" href="#section">
             Learn More
           </a>
         </p>
       </Section>
-      <Section ref={section2}>
-        <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
+      <Section ref={elementsRef.current[1]}>
+        <Title
+          style={{ textAlign: "center", marginBottom: "20px" }}
+          tag="h2"
+          className="hello"
+        >
           Tech Stack
-        </h2>
+        </Title>
         <Tabs />
       </Section>
       <Section
-        ref={section3}
+        ref={elementsRef.current[2]}
         style={{
           padding: "60px 0"
         }}
       >
-        <h2 style={{ textAlign: "center", marginBottom: 20 }}>Projects</h2>
+        <Title
+          style={{ textAlign: "center", marginBottom: "20px" }}
+          tag="h2"
+          className="hello"
+        >
+          Projects
+        </Title>
         <Slider>
           {cardData.map((cardData, i) => (
             <>
@@ -136,41 +131,69 @@ export default function App() {
           ))}
         </Slider>
       </Section>
-      <Section ref={section4}>
-        <h2
-          style={{
-            textAlign: "center",
-            marginBottom: "20px"
-          }}
+      <Section ref={elementsRef.current[3]}>
+        <Title
+          style={{ textAlign: "center", marginBottom: "20px" }}
+          tag="h2"
+          className="hello"
         >
           Recommendations
-        </h2>
+        </Title>
         <div className="row">
           <Card />
           <Card />
           <Card />
         </div>
       </Section>
-      <Section ref={section5}>
-        <h2
-          style={{
-            textAlign: "center",
-            marginBottom: "20px"
-          }}
+      <Section ref={elementsRef.current[4]}>
+        <Title
+          style={{ textAlign: "center", marginBottom: "20px" }}
+          tag="h2"
+          className="hello"
         >
           Contact
-        </h2>
+        </Title>
+        <Form>
+          <input name="name" type="text" value="" placeholder="Your Name" />
+          <input name="email" type="text" value="" placeholder="Your Email" />
+          <input name="budget" type="number" value="" placeholder="budget" />
+          <select
+            name="menu-priority"
+            className="wpcf7-form-control wpcf7-select wpcf7-validates-as-required"
+            aria-required="true"
+            aria-invalid="false"
+          >
+            <option value="">---</option>
+            <option value="Expedited">Expedited</option>
+            <option value="Normal">Normal</option>
+            <option value="We've got some time">We've got some time</option>
+          </select>
+          <select
+            name="menu-query"
+            className="wpcf7-form-control wpcf7-select wpcf7-validates-as-required"
+            aria-required="true"
+            aria-invalid="false"
+          >
+            <option value="">---</option>
+            <option value="Website Design">Website Design</option>
+            <option value="Site Migration">Site Migration</option>
+            <option value="Site Maintenance">Site Maintenance</option>
+            <option value="Optimize Site Speed">Optimize Site Speed</option>
+            <option value="Troubleshooting">Troubleshooting</option>
+            <option value="Other">Other</option>
+          </select>
+          <textarea
+            name="textarea-detail"
+            cols="40"
+            rows="10"
+            className=""
+            aria-required="true"
+            aria-invalid="false"
+            placeholder="Message"
+          />
+          <button type="submit">Sending</button>
+        </Form>
       </Section>
-      <TestComponent>
-        <div>
-          Child 1 <div>SubChild</div>
-        </div>
-        <div>
-          Child 2 <div>SubChild</div>
-        </div>
-        <PlaceHolder style={{ background: "red" }} customProp="yay customs" />
-      </TestComponent>
-      {/* <Portfolio /> */}
     </>
   );
 }

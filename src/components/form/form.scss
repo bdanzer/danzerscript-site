@@ -1,0 +1,32 @@
+.error {
+  border: 2px solid red;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+
+  input, textarea, select {
+    width: 100%;
+    -webkit-appearance: none;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    padding: 10px;
+    background: rgba(75, 75, 255, 0.08);
+  }
+
+  input[type="submit"] {
+    text-decoration: none;
+    background: #4b4bff;
+    color: white;
+    border-radius: 6px;
+    padding: 12px 25px;
+    font-size: 14px;
+    box-shadow: 1px 1px 8px 2px #5252ff6e;
+    display: inline-block;
+    margin-right: 25px;
+    font-family: Montserrat;
+    letter-spacing: 1.25px;
+  }
+}
