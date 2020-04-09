@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 
 import ProgressLine from "../progress/progress";
 
+const requestAnimationFrame =
+  window.requestAnimationFrame ||
+  window.mozRequestAnimationFrame ||
+  window.webkitRequestAnimationFrame ||
+  window.msRequestAnimationFrame;
+
 export default function MenuItem({ sectionLink, text }) {
   const [progress, setProgress] = useState();
   const [hide, setHide] = useState(true);
@@ -26,7 +32,7 @@ export default function MenuItem({ sectionLink, text }) {
   };
 
   const requestAnimiation = lastScrollY => {
-    window.requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
       let elOffsetTop =
         sectionLink.current.offsetTop -
         (sectionLink.current.offsetTop === 0 ? 0 : 62);
