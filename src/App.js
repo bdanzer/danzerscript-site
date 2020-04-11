@@ -7,9 +7,11 @@ import Button from "./components/button/button";
 import Tabs from "./components/tabs/tabs";
 import Modal from "./components/modal/modal";
 import MenuParent from "./components/menu-parent/menu-parent";
-import MenuItem from "./components/menu-item/menu-item";
+import MenuItems from "./components/menu-items/menu-items";
 import DScriptLogo from "./components/d-script-logo/d-script-logo";
 import Section from "./components/section/section";
+
+import Col from "./components/col/col";
 
 import Form from "./components/form/form";
 
@@ -25,46 +27,42 @@ const cardData = [
 ];
 
 const menuData = [
-  { text: "About" },
-  { text: "Tech Stack" },
-  { text: "Projects" },
-  { text: "Recommendations" },
-  { text: "Contact" }
+  { text: "About", link: "#" },
+  { text: "Tech Stack", link: "#" },
+  { text: "Projects", link: "#" },
+  { text: "Recommendations", link: "#" },
+  { text: "Contact", link: "#" }
 ];
 
 export default function App() {
   const [isOpen, setModalState] = useState(false);
-  const elementsRef = useRef([1, 2, 3, 4, 5].map(() => createRef()));
-  const [menuOpen, setMenuOpen] = useState(false);
+  const elementsRef = useRef(
+    Array(menuData.length)
+      .fill("")
+      .map(() => createRef())
+  );
 
   return (
     <>
+      <Col col="2">
+        <h2>HellO!</h2>
+      </Col>
       <MenuParent>
-        <div>
-          <DScriptLogo />
-        </div>
-        {console.log(window.outerWidth, 767, window.outerWidth < 767)}
-        {window.outerWidth < 767 && (
-          <button
-            className="menu-button-mobile"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            Menu
-          </button>
-        )}
-        <div
-          className={`menu-wrap row ${
-            window.outerWidth < 767 ? "mobile" : "desktop"
-          } ${menuOpen ? "open" : "closed"}`}
-        >
-          {menuData.map((menu, i) => (
-            <MenuItem
-              key={i}
-              sectionLink={elementsRef.current[i]}
-              text={menu.text}
+        {(windowSize, toggleMenu) => (
+          <>
+            <DScriptLogo isLarge={true} />
+            <MenuItems
+              size={windowSize}
+              menuData={menuData}
+              elementsRef={elementsRef}
             />
-          ))}
-        </div>
+            {windowSize < 1000 && (
+              <button className="menu-button-mobile" onClick={toggleMenu}>
+                Menu
+              </button>
+            )}
+          </>
+        )}
       </MenuParent>
 
       <Section

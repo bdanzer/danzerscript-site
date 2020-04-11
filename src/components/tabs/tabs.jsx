@@ -84,10 +84,15 @@ let json = {
 
 export default function Tabs() {
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
+  const [containerHeight, setContainerHeight] = useState(0);
   const tabContainerRef = useRef();
 
   useEffect(() => {
     fixTabContainerHeight();
+
+    window.addEventListener("resize", () => {
+      fixTabContainerHeight();
+    });
   }, []);
 
   const getIcons = ({ icons }) =>
@@ -107,7 +112,7 @@ export default function Tabs() {
       height = height < child.offsetHeight ? child.offsetHeight : height;
     }
 
-    tabContainer.style.height = `${height}px`;
+    setContainerHeight(height);
   };
 
   return (
@@ -144,7 +149,8 @@ export default function Tabs() {
           ref={tabContainerRef}
           className="col-three-fourths"
           style={{
-            position: "relative"
+            position: "relative",
+            height: `${containerHeight}px`
           }}
         >
           {json.tabContent.map((tabContent, i) => (

@@ -5,7 +5,7 @@ import "./d-script-logo.scss";
 export default function DScriptLogo({ isLarge }) {
   return (
     <div
-      className={`logo ${!isLarge ? "large" : "small"}`}
+      className={`logo ${isLarge ? "large" : "small"}`}
       style={{
         fontSize: 20
       }}
