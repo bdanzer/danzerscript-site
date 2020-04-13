@@ -44,7 +44,7 @@ export default function App() {
 
   return (
     <>
-      <Col col="2">
+      <Col col="2" disabled>
         <h2>HellO!</h2>
       </Col>
       <MenuParent>
@@ -117,12 +117,13 @@ export default function App() {
                 key={i}
                 {...cardData}
                 onClick={() => {
-                  setModalState(true);
+                  setModalState(!isOpen);
                 }}
               />
               {isOpen && (
                 <Modal isOpen={isOpen}>
                   {console.log("modalData", cardData)}
+                  <h2>{cardData.title}</h2>
                 </Modal>
               )}
             </>

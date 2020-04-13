@@ -1,28 +1,28 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import { ReactComponent as JavaScriptIcon } from "../../../public/svgs/javascript.svg";
-import { ReactComponent as ReduxIcon } from "../../../public/svgs/redux.svg";
-import { ReactComponent as ReactIcon } from "../../../public/svgs/react.svg";
-import { ReactComponent as VueIcon } from "../../../public/svgs/vue.svg";
-import { ReactComponent as StencilIcon } from "../../../public/svgs/stencil.svg";
-import { ReactComponent as TypeScriptIcon } from "../../../public/svgs/typescript.svg";
+import { ReactComponent as JavaScriptIcon } from "../../svgs/javascript.svg";
+import { ReactComponent as ReduxIcon } from "../../svgs/redux.svg";
+import { ReactComponent as ReactIcon } from "../../svgs/react.svg";
+import { ReactComponent as VueIcon } from "../../svgs/vue.svg";
+import { ReactComponent as StencilIcon } from "../../svgs/stencil.svg";
+import { ReactComponent as TypeScriptIcon } from "../../svgs/typescript.svg";
 
-import { ReactComponent as NextJSIcon } from "../../../public/svgs/nextjs.svg";
-import { ReactComponent as ExpressIcon } from "../../../public/svgs/express.svg";
-import { ReactComponent as MongoDB } from "../../../public/svgs/mongodb.svg";
-import { ReactComponent as NodeJS } from "../../../public/svgs/nodejs.svg";
-import { ReactComponent as WordPress } from "../../../public/svgs/wordpress.svg";
-import { ReactComponent as FireBase } from "../../../public/svgs/firebase.svg";
+import { ReactComponent as NextJSIcon } from "../../svgs/nextjs.svg";
+import { ReactComponent as ExpressIcon } from "../../svgs/express.svg";
+import { ReactComponent as MongoDB } from "../../svgs/mongodb.svg";
+import { ReactComponent as NodeJS } from "../../svgs/nodejs.svg";
+import { ReactComponent as WordPress } from "../../svgs/wordpress.svg";
+import { ReactComponent as FireBase } from "../../svgs/firebase.svg";
 
-import { ReactComponent as Puppeteer } from "../../../public/svgs/puppeteer.svg";
-import { ReactComponent as Jest } from "../../../public/svgs/jest.svg";
+import { ReactComponent as Puppeteer } from "../../svgs/puppeteer.svg";
+import { ReactComponent as Jest } from "../../svgs/jest.svg";
 
-import { ReactComponent as Docker } from "../../../public/svgs/docker.svg";
-import { ReactComponent as Jenkins } from "../../../public/svgs/jenkins.svg";
-import { ReactComponent as Aws } from "../../../public/svgs/aws.svg";
-import { ReactComponent as CloudFlare } from "../../../public/svgs/cloudflare.svg";
-import { ReactComponent as DigitalOcean } from "../../../public/svgs/digital-ocean.svg";
-import { ReactComponent as Zeit } from "../../../public/svgs/zeit.svg";
+import { ReactComponent as Docker } from "../../svgs/docker.svg";
+import { ReactComponent as Jenkins } from "../../svgs/jenkins.svg";
+import { ReactComponent as Aws } from "../../svgs/aws.svg";
+import { ReactComponent as CloudFlare } from "../../svgs/cloudflare.svg";
+import { ReactComponent as DigitalOcean } from "../../svgs/digital-ocean.svg";
+import { ReactComponent as Zeit } from "../../svgs/zeit.svg";
 
 import TabContent from "./tab-content";
 
