@@ -17,13 +17,52 @@ import Form from "./components/form/form";
 
 import Title from "./components/title/title";
 
+import { ReactComponent as UpworkIcon } from "./svgs/upwork.svg";
+import { ReactComponent as LinkedInIcon } from "./svgs/linkedin.svg";
+
 const cardData = [
-    { imgSrc: "https://source.unsplash.com/800x601" },
-    { imgSrc: "https://source.unsplash.com/800x602" },
-    { imgSrc: "https://source.unsplash.com/800x603" },
-    { imgSrc: "https://source.unsplash.com/800x604" },
-    { imgSrc: "https://source.unsplash.com/800x605" },
-    { imgSrc: "https://source.unsplash.com/800x606" },
+    {
+        imgSrc: "https://source.unsplash.com/800x601",
+        title: "Card 1",
+        description:
+            "This is a paragraph, and we are going to keep talking and talking because we need some filling to check things out!",
+    },
+    {
+        imgSrc: "https://source.unsplash.com/800x602",
+        title: "Card 2",
+        description:
+            "This is a paragraph, and we are going to keep talking and talking because we need some filling to check things out!",
+    },
+    {
+        imgSrc: "https://source.unsplash.com/800x603",
+        title: "Corona Virus By The Numbers",
+        description:
+            "This is a paragraph, and we are going to keep talking and talking because we need some filling to check things out!",
+    },
+    {
+        imgSrc: "https://source.unsplash.com/800x604",
+        title: "Card 4",
+        description:
+            "This is a paragraph, and we are going to keep talking and talking because we need some filling to check things out!",
+    },
+    {
+        imgSrc: "https://source.unsplash.com/800x605",
+        title: "Card 5",
+        description:
+            "This is a paragraph, and we are going to keep talking and talking because we need some filling to check things out!",
+    },
+    {
+        imgSrc: "https://source.unsplash.com/800x606",
+        title: "Card 6",
+        description:
+            "This is a paragraph, and we are going to keep talking and talking because we need some filling to check things out!",
+    },
+    {
+        imgSrc: "https://source.unsplash.com/800x607",
+        title: "Card 7",
+        description:
+            "This is a paragraph, and we are going to keep talking and talking because we need some filling to check things out!",
+    },
 ];
 
 const menuData = [
@@ -44,6 +83,7 @@ export default function App() {
 
     return (
         <>
+            <div className="fixed-status">Site is still in progress</div>
             {/* <Col col="2" disabled>
         <h2>HellO!</h2>
       </Col> */}
@@ -142,9 +182,13 @@ export default function App() {
                     Recommendations
                 </Title>
                 <div className="row">
-                    <Card />
-                    <Card />
-                    <Card />
+                    <Card showButton={false} Icon={UpworkIcon} />
+                    <Card
+                        showButton={false}
+                        description="Britt is an outstanding team player with an even better attitude. During his time at Multiply, he surprised me almost daily with his willingness to take on new tasks and challenges he had never faced before. Britt is unafraid to ask for help in the rare cases he gets stuck on something, but those conversations yield new and interesting solutions as he whiteboards complex problems. I would recommend Britt to anyone who is looking for a motivated engineer who will take ownership of large parts of an application."
+                        Icon={LinkedInIcon}
+                    />
+                    <Card showButton={false} Icon={LinkedInIcon} />
                 </div>
             </Section>
             <Section ref={elementsRef.current[4]}>

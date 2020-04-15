@@ -1,77 +1,77 @@
 * {
-  box-sizing: border-box
+    box-sizing: border-box;
 }
 
 body {
-  font-family: sans-serif;
-  // height: 1700px;
-  margin: 0;
-  padding-bottom: 100px;
+    font-family: sans-serif;
+    // height: 1700px;
+    margin: 0;
+    padding-bottom: 100px;
 
-  font-family: 'Work Sans', sans-serif;
-  // font-family: 'Montserrat', sans-serif;
-  // font-family: 'Poppins', sans-serif;
+    font-family: "Work Sans", sans-serif;
+    // font-family: 'Montserrat', sans-serif;
+    // font-family: 'Poppins', sans-serif;
 }
 
 .column {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .modal-container {
-  position: fixed;
-  z-index: 9999999;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  min-width: 350px;
-  box-shadow: 1px 1px 23px rgba(0, 0, 0, .5)
+    position: fixed;
+    z-index: 9999999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    min-width: 350px;
+    box-shadow: 1px 1px 23px rgba(0, 0, 0, 0.5);
 }
 
 p {
-  max-width: 500px;
-  font-size: 18px;
-  line-height: 1.4;
-  margin: 0px 0 20px;
-  letter-spacing: .6px;
-  font-weight: 300;
-  color: #656565;
+    max-width: 500px;
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 0px 0 20px;
+    letter-spacing: 0.6px;
+    font-weight: 300;
+    color: #656565;
 }
 
 a {
-  &.primary-button {
-    text-decoration: none;
-    background: #4b4bff;
-    color: white;
-    border-radius: 6px;
-    padding: 12px 25px;
-    font-size: 14px;
-    box-shadow: 1px 1px 8px 2px #5252ff6e;
-    display: inline-block;
-    margin-right: 25px;
-    font-family: Montserrat;
-    letter-spacing: 1.25px;
-  }
-  
-  &.secondary-button.transparent {
-    text-decoration: none;
-    color: black;
-    font-family: montserrat;
-    font-size: 14px;
-    letter-spacing: 1.25px;
-  }
+    &.primary-button {
+        text-decoration: none;
+        background: #4b4bff;
+        color: white;
+        border-radius: 6px;
+        padding: 12px 25px;
+        font-size: 14px;
+        box-shadow: 1px 1px 8px 2px #5252ff6e;
+        display: inline-block;
+        margin-right: 25px;
+        font-family: Montserrat;
+        letter-spacing: 1.25px;
+    }
 
-  &:hover {
-    cursor: pointer;
-  }
+    &.secondary-button.transparent {
+        text-decoration: none;
+        color: black;
+        font-family: montserrat;
+        font-size: 14px;
+        letter-spacing: 1.25px;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 :focus {
@@ -80,6 +80,18 @@ a {
 }
 
 .align-items-center {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
+}
+
+.fixed-status {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: red;
+    color: white;
+    border-radius: 6px;
+    padding: 15px 20px;
+    z-index: 99999999999;
+    box-shadow: 1px 1px 9px #fb0000d1;
 }
