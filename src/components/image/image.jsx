@@ -16,7 +16,7 @@ export default function Image(props) {
     return (
         <>
             {loaded ? "" : <div class="loading-placeholder">Not here yet</div>}
-            {/* <LazyLoad height="">
+            <LazyLoad height="">
                 <img
                     className={`card-image card-loaded-${loaded}`}
                     ref={ref}
@@ -24,7 +24,7 @@ export default function Image(props) {
                     onLoad={() => setLoaded(true)}
                     {...props}
                 />
-            </LazyLoad> */}
+            </LazyLoad>
         </>
     );
 }
