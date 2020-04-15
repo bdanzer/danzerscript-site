@@ -10,8 +10,23 @@
 
     .card-wrap {
         box-shadow: 1px 1px 20px 0px #00000038;
-        border-radius: 13px;
         background: white;
+        border-radius: 13px;
+        overflow: hidden;
+
+        .card-image-wrap {
+            position: relative;
+            padding-top: 77%;
+            overflow: hidden;
+            > * {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
 
         .content-wrap {
             padding: 20px;

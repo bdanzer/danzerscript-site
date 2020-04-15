@@ -80,7 +80,7 @@ export default function Slider({ children }) {
             viewableCards,
         } = slideState;
 
-        let moveSlidesPast = 1;
+        let moveSlidesPast = 2;
 
         let maxWidth =
             childCount * actualWidth -
