@@ -121,7 +121,7 @@ export default function App() {
                     I am a Full-Stack JavaScript Engineer, with emphasis on
                     Front-End. I am constantly learning and continously taking
                     on new challenges. If you would like to work with me then
-                    contact me! Otherwise, please take a look around the site.
+                    contact me!
                 </p>
                 <p>
                     <Button text="Contact Me" />
