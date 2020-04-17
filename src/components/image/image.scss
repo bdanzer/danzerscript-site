@@ -1,17 +1,17 @@
 .card-image {
-    filter: blur(4px);
-    transition: filter 1s ease;
+  filter: blur(4px);
+  transition: filter 1s ease;
 }
 
 .card-loaded-true {
-    filter: blur(0);
+  filter: blur(0);
 }
 
 .loading-placeholder {
-    height: 200px;
-    background: #4b4bff;
-    filter: blur(1px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 200px;
+  background: #4b4bff;
+  filter: blur(1px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

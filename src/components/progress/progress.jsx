@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-import "./progress.scss";
+import "./progress.scss"
 
 export default function ProgressLine({ progress, classes }) {
   return (
@@ -16,5 +16,5 @@ export default function ProgressLine({ progress, classes }) {
         className="underline underline-progress"
       />
     </div>
-  );
+  )
 }

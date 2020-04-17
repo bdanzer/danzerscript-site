@@ -41,7 +41,7 @@
           max-width: 50%;
           margin: 0;
 
-          &:nth-child(even){
+          &:nth-child(even) {
             order: -1;
           }
         }
@@ -94,7 +94,7 @@
   border-radius: 3px;
   margin-bottom: 10px;
   color: black;
-  transition: .15s ease-in;
+  transition: 0.15s ease-in;
   position: relative;
 
   &:before {
@@ -106,19 +106,19 @@
     position: absolute;
     right: 12px;
     top: 50%;
-    transform: translateY(-50%) scale(.8);
+    transform: translateY(-50%) scale(0.8);
     background: #bf0808;
     box-shadow: 0px 0px 4px 1px #ea202096;
     background: #505050;
     box-shadow: 0px 0px 4px 1px #00000096;
   }
-  
+
   &.active {
     color: white;
     background: #4b4bff;
     box-shadow: 1px 1px 8px 2px #5252ff6e;
     box-shadow: 0px 0px 6px 3px #4b4bff6e;
-    
+
     &:before {
       background: #08bf08;
       box-shadow: 0px 0px 6px 1px #20ea20e6;
@@ -154,12 +154,12 @@
   left: 0;
   transform: translateY(50px);
   opacity: 0;
-  transition: opacity 400ms ease, transform .5s ease-out;
+  transition: opacity 400ms ease, transform 0.5s ease-out;
 
   &.active {
     opacity: 1;
     transform: translateY(0px);
-    transition: opacity 400ms ease, transform .5s ease-in;
+    transition: opacity 400ms ease, transform 0.5s ease-in;
     z-index: 1;
   }
 

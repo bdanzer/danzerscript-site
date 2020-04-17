@@ -6,14 +6,14 @@
   padding: 16.5px 60px;
   justify-content: flex-end;
   z-index: 999999;
-  transition: .5s ease;
-  
+  transition: 0.5s ease;
+
   &.moving {
     box-shadow: 1px -4px 5px 3px #00000073;
     background: white;
   }
 
-  .menu-wrap { 
+  .menu-wrap {
     margin-top: 4px;
 
     .menu-item {
@@ -73,10 +73,11 @@
   .menu-wrap.row.mobile a {
     color: white;
   }
-  
+
   .menu-wrap.row.mobile:before {
-    transform: translate(-50%,-50%) scale(1);
-    transition: transform .9s cubic-bezier(.25,.95,.45,.95),opacity .5s cubic-bezier(.25,.95,.45,.95);
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.9s cubic-bezier(0.25, 0.95, 0.45, 0.95),
+      opacity 0.5s cubic-bezier(0.25, 0.95, 0.45, 0.95);
     opacity: 1;
     z-index: -1;
   }
@@ -86,7 +87,6 @@
   }
 }
 
-
 .menu-wrap.row.mobile:before {
   content: "";
   top: 24px;
@@ -94,11 +94,12 @@
   width: 240vmax;
   height: 240vmax;
   border-radius: 50%;
-  transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%) scale(.02);
-  background: rgba(36,38,38,.99);
+  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.02);
+  background: rgba(36, 38, 38, 0.99);
   opacity: 0;
-  transition: transform 0s cubic-bezier(.25,.95,.45,.95) .4s,opacity .4s cubic-bezier(.25,.95,.45,.95);
+  transition: transform 0s cubic-bezier(0.25, 0.95, 0.45, 0.95) 0.4s,
+    opacity 0.4s cubic-bezier(0.25, 0.95, 0.45, 0.95);
   position: fixed;
 }
 

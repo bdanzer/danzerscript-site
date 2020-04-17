@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"
 
-import "./title.scss";
+import "./title.scss"
 
 export default function Title(props) {
-  const { children, tag, className, style } = props;
+  const { children, tag, className, style } = props
 
   return React.createElement(
     tag,
@@ -12,5 +12,5 @@ export default function Title(props) {
       style: style
     },
     children
-  );
+  )
 }

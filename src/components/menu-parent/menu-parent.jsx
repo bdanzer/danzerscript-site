@@ -1,42 +1,42 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react"
 
-import "./menu-parent.scss";
+import "./menu-parent.scss"
 
 export default function MenuParent({ children }) {
-  const menuContainer = useRef();
-  const [isMoving, setMoving] = useState(false);
-  const [resize, setResize] = useState(window.innerWidth);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const menuContainer = useRef()
+  const [isMoving, setMoving] = useState(false)
+  const [resize, setResize] = useState(window.innerWidth)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     document.addEventListener("scroll", () => {
-      let scrolled = false;
+      let scrolled = false
       if (!scrolled) {
         if (window.pageYOffset > 0) {
-          setMoving(true);
+          setMoving(true)
         } else {
-          setMoving(false);
+          setMoving(false)
         }
-        scrolled = true;
+        scrolled = true
       }
-    });
-  }, []);
+    })
+  }, [])
 
   useEffect(() => {
     let windowSizeListener = window.addEventListener("resize", () => {
       // console.log("resizing");
-      setResize(window.innerWidth);
-    });
+      setResize(window.innerWidth)
+    })
 
     return () => {
-      window.removeEventListener("resize", windowSizeListener);
-      console.log("removed");
-    };
-  }, []);
+      window.removeEventListener("resize", windowSizeListener)
+      console.log("removed")
+    }
+  }, [])
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+    setMenuOpen(!menuOpen)
+  }
 
   return (
     <div
@@ -46,9 +46,8 @@ export default function MenuParent({ children }) {
       }`}
       style={{
         justifyContent: "space-between"
-      }}
-    >
+      }}>
       {children(resize, toggleMenu)}
     </div>
-  );
+  )
 }

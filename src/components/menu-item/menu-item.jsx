@@ -1,90 +1,90 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 
-import ProgressLine from "../progress/progress";
+import ProgressLine from "../progress/progress"
 
 const requestAnimationFrame =
   window.requestAnimationFrame ||
   window.mozRequestAnimationFrame ||
   window.webkitRequestAnimationFrame ||
-  window.msRequestAnimationFrame;
+  window.msRequestAnimationFrame
 
 export default function MenuItem({ sectionLink, text }) {
-  const [progress, setProgress] = useState();
-  const [hide, setHide] = useState(true);
+  const [progress, setProgress] = useState()
+  const [hide, setHide] = useState(true)
 
   useEffect(() => {
     if (sectionLink) {
-      window.addEventListener("scroll", onScroll);
+      window.addEventListener("scroll", onScroll)
 
       return () => {
-        window.removeEventListener("scroll", onScroll);
-      };
+        window.removeEventListener("scroll", onScroll)
+      }
     }
-  }, []);
+  }, [])
 
   const onScroll = () => {
-    let scroll = false;
-    let lastScrollY = window.scrollY;
+    let scroll = false
+    let lastScrollY = window.scrollY
     if (!scroll) {
-      requestAnimiation(lastScrollY);
-      scroll = true;
+      requestAnimiation(lastScrollY)
+      scroll = true
     }
-  };
+  }
 
-  const requestAnimiation = lastScrollY => {
+  const requestAnimiation = (lastScrollY) => {
     requestAnimationFrame(() => {
       let elOffsetTop =
         sectionLink.current.offsetTop -
-        (sectionLink.current.offsetTop === 0 ? 0 : 62);
+        (sectionLink.current.offsetTop === 0 ? 0 : 62)
       // console.log(elOffsetTop);
       let elOffsetHeight =
-        sectionLink.current.offsetHeight - (elOffsetTop !== 0 ? 0 : 62);
-      let totalElOffsetHeight = elOffsetTop + elOffsetHeight;
-      let elOffsetLessThanWindowY = elOffsetTop < window.pageYOffset;
+        sectionLink.current.offsetHeight - (elOffsetTop !== 0 ? 0 : 62)
+      let totalElOffsetHeight = elOffsetTop + elOffsetHeight
+      let elOffsetLessThanWindowY = elOffsetTop < window.pageYOffset
       let totalElOffsetHeightGreaterThanWindowY =
-        totalElOffsetHeight > window.pageYOffset;
+        totalElOffsetHeight > window.pageYOffset
 
       let inRange =
-        elOffsetLessThanWindowY && totalElOffsetHeightGreaterThanWindowY;
+        elOffsetLessThanWindowY && totalElOffsetHeightGreaterThanWindowY
 
       // if (elOffsetLessThanWindowY && totalElOffsetHeightGreaterThanWindowY) {
 
       if (elOffsetTop && window.pageYOffset < 62) {
-        return;
+        return
       }
 
-      let progressTotal = (window.pageYOffset - elOffsetTop) / elOffsetHeight;
-      let percentage = Math.floor(progressTotal * 100);
+      let progressTotal = (window.pageYOffset - elOffsetTop) / elOffsetHeight
+      let percentage = Math.floor(progressTotal * 100)
 
       if (percentage >= 100) {
-        percentage = 100;
+        percentage = 100
       }
 
       if (percentage <= 0) {
-        percentage = 0;
+        percentage = 0
       }
 
       if (inRange) {
-        setHide(false);
+        setHide(false)
       } else {
-        setHide(true);
+        setHide(true)
       }
 
-      setProgress(percentage);
+      setProgress(percentage)
       // }
-    });
-  };
+    })
+  }
 
-  const handleMenuClick = e => {
-    let elOffsetTop = sectionLink.current.offsetTop - 62;
+  const handleMenuClick = (e) => {
+    let elOffsetTop = sectionLink.current.offsetTop - 62
 
     window.scrollTo({
       top: elOffsetTop + 1,
       behavior: "smooth"
-    });
+    })
 
-    e.preventDefault();
-  };
+    e.preventDefault()
+  }
 
   return (
     <div className="menu-item">
@@ -100,5 +100,5 @@ export default function MenuItem({ sectionLink, text }) {
         </div>
       </div>
     </div>
-  );
+  )
 }

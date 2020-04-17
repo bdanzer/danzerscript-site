@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-import MenuItem from "../menu-item/menu-item";
+import MenuItem from "../menu-item/menu-item"
 
 export default function MenuItems({ size, menuData, elementsRef }) {
   return (
@@ -14,5 +14,5 @@ export default function MenuItems({ size, menuData, elementsRef }) {
         />
       ))}
     </div>
-  );
+  )
 }

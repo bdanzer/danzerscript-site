@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-import Button from "../button/button";
+import Button from "../button/button"
 
 export default function ContentArea({ title, content, buttonText }) {
   return (
@@ -11,5 +11,5 @@ export default function ContentArea({ title, content, buttonText }) {
         <Button text={buttonText} />
       </p>
     </div>
-  );
+  )
 }
